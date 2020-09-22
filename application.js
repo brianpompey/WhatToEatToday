@@ -1,8 +1,24 @@
+const BASE_URL = "http://localhost:3001";
+const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
 console.log("Hello")
 
-fetch('http://localhost:3001/restaurants')
-    .then(res => res.json())
-    .then(data => console.log(data))
+const container = document.getElementById("container");
+
+const renderRestaurants = async () => {
+  const restaurants = await getRestaurants();
+  for (const restaurant of restaurants) {
+      container.innerHTML = ("[" + restaurants[i].id + "]: " + restaurants[i].name) + "<br>"
+      //console.log(restaurant)
+  };
+}
+
+const getRestaurants = async () => {
+    const response = await fetch(`${RESTAURANTS_URL}`)
+    const data = response.json();
+      console.log(data);
+    }
+
+
 
 /*
 const BASE_URL = "http://localhost:3001";
@@ -52,6 +68,6 @@ function getRestaurants() {
     xhttp.open("GET", "http://localhost:3001/restaurants", true)
     xhttp.send();
 }
+*/
 
 renderRestaurants();
-*/
