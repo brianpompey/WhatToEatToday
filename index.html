@@ -6,10 +6,17 @@
         <title>What To Eat Today</title>
     </head>
     <body>
-        <h1 style="text-align: center">Home Page</h1>
+        <h1 style="text-align: center">What to Eat Today?</h1>
+
+        <form accept-charset="UTF-8" action="http://localhost:3000/users" method="POST" id="new_user_form">
+        <input type="text" name="user[name]" placeholder="what is your name?" />
+        <input type="submit" value="Submit" />
+        </form>
+        
         <div id="container" style="margin:2em;border: 2px solid black;">
             
         </div>
+
     </body>
     <footer>
         <script type="text/javascript" src="application.js"></script>
