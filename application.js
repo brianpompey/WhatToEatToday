@@ -2,6 +2,8 @@ const BASE_URL = "http://localhost:3001";
 const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
 console.log("Hello")
 
+document.addEventListener("DOMContentLoaded", console.log("HELLO WORLD"))
+
 const container = document.getElementById("container");
 
 const renderRestaurants = async () => {
@@ -12,10 +14,21 @@ const renderRestaurants = async () => {
   };
 }
 
+function allRestaurants() {
+  fetch(RESTAURANTS_URL)
+    .then(resp => resp.json())
+    .then(restaurants => {
+      for (const restaurant of restaurants) {
+        
+      }
+    }
+    )}
+
+/*
 const getRestaurants = async () => {
     const response = await fetch(`${RESTAURANTS_URL}`)
     const data = response.json();
-      alert(data);
+      console.log(data);
     }
 
 
@@ -70,4 +83,4 @@ function getRestaurants() {
 }
 */
 
-renderRestaurants();
+allRestaurants();
