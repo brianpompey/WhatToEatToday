@@ -15,7 +15,7 @@ const renderRestaurants = async () => {
 const getRestaurants = async () => {
     const response = await fetch(`${RESTAURANTS_URL}`)
     const data = response.json();
-      console.log(data);
+      alert(data);
     }
 
 
