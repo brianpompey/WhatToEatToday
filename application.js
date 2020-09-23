@@ -9,7 +9,7 @@ const container = document.getElementById("container");
 const renderRestaurants = async () => {
   const restaurants = await getRestaurants();
   for (const restaurant of restaurants) {
-      container.innerHTML = ("[" + restaurants[i].id + "]: " + restaurants[i].name) + "<br>"
+      container.innerHTML = ("[" + restaurant.id + "]: " + restaurant.name) + "<br>"
       //console.log(restaurant)
   };
 }
@@ -19,8 +19,8 @@ function allRestaurants() {
     .then(resp => resp.json())
     .then(restaurants => {
       for (const restaurant of restaurants) {
-        
-      }
+        container.innerHTML = ("[" + restaurant.id + "]: " + restaurant.name + " " + restaurant.cuisine + " cuisine."
+        )}
     }
     )}
 
