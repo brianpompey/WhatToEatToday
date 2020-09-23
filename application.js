@@ -6,21 +6,30 @@ document.addEventListener("DOMContentLoaded", console.log("HELLO WORLD"))
 
 const container = document.getElementById("container");
 
+/*
 const renderRestaurants = async () => {
   const restaurants = await getRestaurants();
+
   for (const restaurant of restaurants) {
       container.innerHTML = ("[" + restaurant.id + "]: " + restaurant.name) + "<br>"
+    
       //console.log(restaurant)
   };
 }
+*/
 
 function allRestaurants() {
   fetch(RESTAURANTS_URL)
     .then(resp => resp.json())
     .then(restaurants => {
+      for (let i = 0; i < restaurants.length; i++) {
+        container.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} ${restaurants[i].cuisine} cuisine.`
+        )};
+    /*
       for (const restaurant of restaurants) {
         container.innerHTML = ("[" + restaurant.id + "]: " + restaurant.name + " " + restaurant.cuisine + " cuisine."
         )}
+        */
     }
     )}
 
