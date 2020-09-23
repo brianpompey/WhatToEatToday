@@ -26,3 +26,16 @@ Restaurant.create(:name => "Patmar", :location => "Brooklyn", :cuisine => "Jamai
 Restaurant.create(:name => "Esca", :location => "Brooklyn", :cuisine => "Italian")
 Restaurant.create(:name => "Zahid's", :location => "Brooklyn", :cuisine => "Halal")
 Restaurant.create(:name => "Dora's", :location => "Brooklyn", :cuisine => "Dominican")
+
+Restaurant.create(:name => "Silvia's", :location => "Manhattan", :cuisine => "Southern")
+Restaurant.create(:name => "The Vegan Life", :location => "Manhattan", :cuisine => "Vegan")
+Restaurant.create(:name => "The Halal Guys", :location => "Manhattan", :cuisine => "Halal")
+Restaurant.create(:name => "Carbone", :location => "Manhattan", :cuisine => "Italian")
+
+
+
+Restaurant.create(:name => "Robertos", :location => "Bronx", :cuisine => "Italian")
+Restaurant.create(:name => "Medellin Cuisine", :location => "Bronx", :cuisine => "Colombian")
+Restaurant.create(:name => "Lena", :location => "Bronx", :cuisine => "Dominican")
+Restaurant.create(:name => "Jamaican Flavors", :location => "Bronx", :cuisine => "Jamaican")
+Restaurant.create(:name => "The Halal Guys", :location => "Bronx", :cuisine => "Halal")
