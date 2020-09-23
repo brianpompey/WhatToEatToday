@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", allRestaurants)
 const container = document.getElementById("container");
 
 
+function submitUserForm() {
+  document.getElementById("new_user_form").submit();
+}
+
 function allRestaurants() {
   fetch(RESTAURANTS_URL)
     .then(resp => resp.json())
@@ -17,6 +21,9 @@ function allRestaurants() {
 
     }
     )}
+
+
+
 
 /*
 const getRestaurants = async () => {
