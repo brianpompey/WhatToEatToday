@@ -6,10 +6,48 @@ document.addEventListener("DOMContentLoaded", allRestaurants)
 
 const container = document.getElementById("container");
 
+const userForm = document.getElementById("new_user_form");
 
 function submitUserForm() {
-  document.getElementById("new_user_form").submit();
+  userForm.onsubmit = async (e) => {
+    e.preventDefault();
+    let response = await fetch('http://localhost:3000/users', {
+      method: 'POST',
+      body: new FormData(new_user_form)
+    });
+
+    let result = await response.json();
+
+    alert(result.message);
+  }
 }
+/*
+  event.preventDefault();
+  document.getElementById("new_user_form").submit();
+
+  let down = document.getElementById("food choice form");
+
+  function foodChoiceForm() {
+  let form = document.createElement("form");
+  form.setAttribute("method", "post");
+  
+  let ID = document.createElement("input");
+  ID.setAttribute("type", "text");
+  ID.setAttribute("name", "selection");
+  ID.setAttribute("placeholder", "What are you craving today?");
+  
+  let s = document.createElement("input");
+  s.setAttribute("type", "submit");
+  s.setAttribute("value", "Submit");
+  
+  form.append(ID);
+  form.append(s);
+  
+  document.getElementsByTagName("body")[0].appendChild(form);
+};
+foodChoiceForm();
+}
+*/
 
 function allRestaurants() {
   fetch(RESTAURANTS_URL)
