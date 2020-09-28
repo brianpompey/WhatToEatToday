@@ -18,7 +18,7 @@ function submitUserForm() {
 
     let result = await response.json();
 
-    alert(result.message);
+    console.log(result.message);
   }
 }
 /*
@@ -54,7 +54,7 @@ function allRestaurants() {
     .then(resp => resp.json())
     .then(restaurants => {
       for (let i = 0; i < restaurants.length; i++) {
-        container.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
+        container.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} - ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
         )};
 
     }
