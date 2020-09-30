@@ -2,7 +2,7 @@ const BASE_URL = "http://localhost:3000";
 const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
 console.log("Hello")
 
-document.addEventListener("DOMContentLoaded", allRestaurants)
+//document.addEventListener("DOMContentLoaded", allRestaurants)
 
 const container = document.getElementById("container");
 
@@ -43,7 +43,7 @@ function submitUserForm() {
   let nameForm = document.getElementById("new_user_form");
   let name = result.name;
   let greeting = document.createElement("p");
-  let node = document.createTextNode(`Hello  ${name}`)
+  let node = document.createTextNode(`Hello  ${name.charAt(0).toUpperCase()}${name.slice(1)} !`)
   greeting.appendChild(node);
 
   let element = document.getElementById("food choice form")
