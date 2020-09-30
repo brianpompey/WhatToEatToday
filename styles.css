@@ -2,3 +2,11 @@ h1 {
     font-size: 110px;
     font-family: Lobster, monospace;
 }
+
+
+input {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
