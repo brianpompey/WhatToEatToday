@@ -18,8 +18,30 @@ function submitUserForm() {
 
     let result = await response.json();
 
-    console.log(result.message);
-  }
+    console.log(result);
+
+    let down = document.getElementById("food choice form");
+
+    function foodChoiceForm() {
+      let form = document.createElement("form");
+      form.setAttribute("method", "post");
+
+      let ID = document.createElement("input");
+      ID.setAttribute("type", "text");
+      ID.setAttribute("name", "selection");
+      ID.setAttribute("placeholder", "What are you craving today?");
+      
+      let s = document.createElement("input");
+      s.setAttribute("type", "submit");
+      s.setAttribute("value", "Submit");
+      
+      form.append(ID);
+      form.append(s);
+      
+      document.getElementsByTagName("body")[0].appendChild(form);
+  };
+  foodChoiceForm();
+}
 }
 /*
   event.preventDefault();
@@ -96,4 +118,3 @@ const getRestaurants = async () => {
 
 
 */
-
