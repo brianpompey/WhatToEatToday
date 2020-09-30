@@ -40,6 +40,18 @@ function submitUserForm() {
       
       document.getElementsByTagName("body")[0].appendChild(form);
   };
+  let nameForm = document.getElementById("new_user_form");
+  let name = result.name;
+  let greeting = document.createElement("p");
+  let node = document.createTextNode(`Hello  ${name}`)
+  greeting.appendChild(node);
+
+  let element = document.getElementById("food choice form")
+  element.appendChild(greeting);
+
+  
+  nameForm.remove();
+
   foodChoiceForm();
 }
 }
