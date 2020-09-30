@@ -34,9 +34,14 @@ function submitUserForm() {
       let s = document.createElement("input");
       s.setAttribute("type", "submit");
       s.setAttribute("value", "Submit");
+
+      let p = document.createElement("input");
+      p.setAttribute("type", "submit");
+      p.setAttribute("value", "Surprise Me");
       
       form.append(ID);
       form.append(s);
+      form.append(p);
       
       document.getElementsByTagName("body")[0].appendChild(form);
   };
@@ -119,14 +124,3 @@ function allRestaurants() {
 
 
 
-
-/*
-const getRestaurants = async () => {
-    const response = await fetch(`${RESTAURANTS_URL}`)
-    const data = response.json();
-      console.log(data);
-    }
-
-
-
-*/
