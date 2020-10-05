@@ -13,6 +13,15 @@ class RestaurantsController < ApplicationController
     render json: @restaurant
   end
 
+  def search
+    #    if params[:search].blank?
+    #        redirect_to(root_path, alert: "Empty field!")
+    #    else
+            @parameter = params[:search]
+            @results = Restaurant.all.where("lower(name) LIKE :search", search: @parameter)
+    #    end
+  end
+  
   # POST /restaurants
   def create
     @restaurant = Restaurant.new(restaurant_params)
