@@ -3,7 +3,7 @@ const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
 let restaurantIndex = [];
 console.log("Hello")
 
-function myFunction() {
+function darkMode() {
   let darkTxt = document.getElementById("dark-mode-toggle")
   let element = document.body;
   element.classList.toggle("dark-mode");
@@ -12,7 +12,7 @@ function myFunction() {
 
 //document.addEventListener("DOMContentLoaded", allRestaurants)
 
-const container = document.getElementById("container");
+const containers = document.getElementById("containers");
 
 const userForm = document.getElementById("new_user_form");
 
@@ -128,19 +128,19 @@ function foodSelectionForm() {
 }
 */
 
-/*
+
 function allRestaurants() {
   fetch(RESTAURANTS_URL)
     .then(resp => resp.json())
     .then(restaurants => {
       for (let i = 0; i < restaurants.length; i++) {
-        container.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} - ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
+        containers.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} - ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
         )};
 
     }
     )}
 
 
-*/
+
 
 loadRestaurants();
