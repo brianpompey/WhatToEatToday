@@ -21,7 +21,7 @@ class RestaurantsController < ApplicationController
             @results = Restaurant.all.where("lower(name) LIKE :search", search: @parameter)
     #    end
   end
-  
+
   # POST /restaurants
   def create
     @restaurant = Restaurant.new(restaurant_params)
@@ -55,6 +55,6 @@ class RestaurantsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :location, :cuisine)
+      params.require(:restaurant).permit(:name, :location, :cuisine, :search)
     end
 end
