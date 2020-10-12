@@ -1,6 +1,6 @@
 const BASE_URL = "http://localhost:3000";
 const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
-const searchBar = document.getElementById('food choice form');
+const searchBar = document.getElementById('searchForm');
 let restaurantIndex = [];
 console.log("Hello")
 
@@ -44,6 +44,7 @@ function submitUserForm() {
     function foodChoiceForm() {
       let form = document.createElement("form");
       form.setAttribute("method", "post");
+      form.id = "searchForm"
 
       let ID = document.createElement("input");
       ID.setAttribute("type", "text");
