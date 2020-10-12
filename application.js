@@ -1,12 +1,30 @@
 const BASE_URL = "http://localhost:3000";
 const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
+let restaurantIndex = [];
 console.log("Hello")
+
+function myFunction() {
+  let darkTxt = document.getElementById("dark-mode-toggle")
+  let element = document.body;
+  element.classList.toggle("dark-mode");
+  darkTxt.innerHTML = "Light Mode"
+}
 
 //document.addEventListener("DOMContentLoaded", allRestaurants)
 
 const container = document.getElementById("container");
 
 const userForm = document.getElementById("new_user_form");
+
+const loadRestaurants = async () => {
+  try {
+    const res = await fetch('http://localhost:3000/restaurants');
+    let myRestaurants = await res.json();
+    console.log(myRestaurants);
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 function submitUserForm() {
   userForm.onsubmit = async (e) => {
@@ -110,7 +128,7 @@ function foodSelectionForm() {
 }
 */
 
-
+/*
 function allRestaurants() {
   fetch(RESTAURANTS_URL)
     .then(resp => resp.json())
@@ -123,4 +141,6 @@ function allRestaurants() {
     )}
 
 
+*/
 
+loadRestaurants();

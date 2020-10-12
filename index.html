@@ -7,21 +7,27 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1 style="text-align: center" ><strong>What to Eat Today?</strong></h1>
+        <ul>
+            <li><a href="#home">Start Over</a></li>
+            <li><a id="dark-mode-toggle" onclick="myFunction()">Dark Mode</a></li>
+            <li style="float:right"><a class="active" href="#about">About</a></li>
+        </ul>
+        <div class="container">
+            <h1 style="text-align: center" ><strong>What to Eat Today?</strong></h1>
 
-        <form id="new_user_form">
-        <input type="text" name="user[name]" placeholder="what is your name?" />
-        <input type="submit" value="Submit" onclick="submitUserForm()" />
-        </form>
-        <div id="food choice form">
+            <form id="new_user_form">
+            <input type="text" name="user[name]" placeholder="what is your name?" />
+            <input type="submit" value="Submit" onclick="submitUserForm()" />
+            </form>
+            <div id="food choice form">
 
-        </div>
-        <!--
-        <div id="container" style="margin:2em;border: 2px solid black;">
-            
-        </div>
+            </div>
+            <!--
+            <div id="container" style="margin:2em;border: 2px solid black;">
+                
+            </div>
     -->
-
+        </div>
     </body>
     <footer>
         <script type="text/javascript" src="application.js"></script>
