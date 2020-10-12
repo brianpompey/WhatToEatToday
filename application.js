@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:3000";
 const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
+const searchBar = document.getElementById('food choice form');
 let restaurantIndex = [];
 console.log("Hello")
 
@@ -78,6 +79,31 @@ function submitUserForm() {
   foodChoiceForm();
 }
 }
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+
+    const filteredRestaurants = restaurantIndex.filter((rest) => {
+      return (
+        rest.name.toLowerCase().includes(searchString)||
+        rest.location.toLowerCase().includes(searchString)||
+        rest.cuisine.toLowerCase().includes(searchString)
+      );
+    });
+    console.log(filteredRestaurants);
+});
+
+function allRestaurants() {
+  fetch(RESTAURANTS_URL)
+    .then(resp => resp.json())
+    .then(restaurants => {
+      for (let i = 0; i < restaurants.length; i++) {
+        containers.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} - ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
+        )};
+
+    }
+    )}
+
 /*
   event.preventDefault();
   document.getElementById("new_user_form").submit();
@@ -129,16 +155,6 @@ function foodSelectionForm() {
 */
 
 
-function allRestaurants() {
-  fetch(RESTAURANTS_URL)
-    .then(resp => resp.json())
-    .then(restaurants => {
-      for (let i = 0; i < restaurants.length; i++) {
-        containers.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} - ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
-        )};
-
-    }
-    )}
 
 
 
