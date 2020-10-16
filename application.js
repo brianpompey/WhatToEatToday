@@ -1,15 +1,23 @@
 const BASE_URL = "http://localhost:3000";
 const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
-const searchBar = document.getElementById('searchForm');
+
 let restaurantIndex = [];
 console.log("Hello")
 
+/*
 function darkMode() {
   let darkTxt = document.getElementById("dark-mode-toggle")
   let element = document.body;
   element.classList.toggle("dark-mode");
   darkTxt.innerHTML = "Light Mode"
 }
+*/
+
+const chk = document.getElementById('chk');
+
+chk.addEventListener('change', () => {
+	document.body.classList.toggle('dark');
+});
 
 //document.addEventListener("DOMContentLoaded", allRestaurants)
 
@@ -45,23 +53,30 @@ function submitUserForm() {
       let form = document.createElement("form");
       form.setAttribute("method", "post");
       form.id = "searchForm"
+      
 
       let ID = document.createElement("input");
       ID.setAttribute("type", "text");
       ID.setAttribute("name", "selection");
       ID.setAttribute("placeholder", "What are you craving today?");
       
+      
+      
+      
       let s = document.createElement("input");
       s.setAttribute("type", "submit");
       s.setAttribute("value", "Submit");
-
+      s.setAttribute("onclick", "submitFoodForm()")
+      
+      /*
       let p = document.createElement("input");
       p.setAttribute("type", "submit");
       p.setAttribute("value", "Surprise Me");
+      */
       
       form.append(ID);
       form.append(s);
-      form.append(p);
+      //form.append(p);
       
       document.getElementsByTagName("body")[0].appendChild(form);
   };
@@ -78,21 +93,40 @@ function submitUserForm() {
   nameForm.remove();
 
   foodChoiceForm();
+
+  const searchBar = document.getElementById('searchForm');
+
+  function submitFoodForm() {
+    searchBar.onclick = async (e) => {
+      e.preventDefault();
+      console.log("hello world");
+    } 
+  } 
+  
+  //searchBar.addEventListener('onsubmit', (e) => {
+    
+
 }
 }
 
-searchBar.addEventListener('keyup', (e) => {
+/*
+const searchBar = document.getElementById('searchForm');
+
+searchBar.addEventListener('onsubmit', (e) => {
     const searchString = e.target.value.toLowerCase();
 
     const filteredRestaurants = restaurantIndex.filter((rest) => {
       return (
-        rest.name.toLowerCase().includes(searchString)||
-        rest.location.toLowerCase().includes(searchString)||
-        rest.cuisine.toLowerCase().includes(searchString)
+        rest.name.toLowerCase().includes(searchString)//||
+        //rest.location.toLowerCase().includes(searchString)||
+        //rest.cuisine.toLowerCase().includes(searchString)
       );
     });
     console.log(filteredRestaurants);
+  
+    console.log("hello world")
 });
+*/
 
 function allRestaurants() {
   fetch(RESTAURANTS_URL)
