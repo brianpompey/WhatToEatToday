@@ -66,7 +66,7 @@ function submitUserForm() {
       let s = document.createElement("input");
       s.setAttribute("type", "submit");
       s.setAttribute("value", "Submit");
-      s.setAttribute("onclick", "submitFoodForm()")
+     // s.setAttribute("onclick", "submitFoodForm()")
       
       /*
       let p = document.createElement("input");
@@ -94,20 +94,27 @@ function submitUserForm() {
 
   foodChoiceForm();
 
-  const searchBar = document.getElementById('searchForm');
+  
+    
 
+}
+}
+
+const searchBar = document.getElementById('searchForm');
+
+  /*
   function submitFoodForm() {
     searchBar.onclick = async (e) => {
       e.preventDefault();
       console.log("hello world");
     } 
   } 
+  */
   
-  //searchBar.addEventListener('onsubmit', (e) => {
-    
-
-}
-}
+  searchBar.addEventListener('onclick', (e) => {
+    e.preventDefault();
+    console.log("hello world");
+  })
 
 /*
 const searchBar = document.getElementById('searchForm');
