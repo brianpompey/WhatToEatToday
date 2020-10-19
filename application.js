@@ -1,7 +1,7 @@
 const BASE_URL = "http://localhost:3000";
 const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
 
-let restaurantIndex = [];
+let myRestaurants = [];
 console.log("Hello")
 
 const chk = document.getElementById('chk');
@@ -94,7 +94,7 @@ const userForm = document.getElementById("new_user_form");
 const loadRestaurants = async () => {
   try {
     const res = await fetch('http://localhost:3000/restaurants');
-    let myRestaurants = await res.json();
+    myRestaurants = await res.json();
     console.log(myRestaurants);
   } catch (err) {
     console.error(err);
@@ -134,8 +134,18 @@ function submitUserForm() {
 
     searchData.addEventListener('keyup', (e) => {
       e.preventDefault();
-      console.log("hello world");
+      console.log(e.target.value);
       containers.innerHTML = "I can use this"
+      const searchString = e.target.value.toLowerCase();
+
+      const filteredRestaurants = myRestaurants.filter((rest) => {
+        return (
+          rest.name.toLowerCase().includes(searchString)//||
+      //rest.location.toLowerCase().includes(searchString)||
+      //rest.cuisine.toLowerCase().includes(searchString)
+        );
+      });
+      console.log(filteredRestaurants);
     })
 
     /*
@@ -147,6 +157,19 @@ function submitUserForm() {
   };   
 
 }
+
+const displayCharacters = (characters) => {
+  const htmlString = characters
+      .map((character) => {
+          return `
+          <li class="character">
+              <h2>${character.name}</h2>
+          </li>
+      `;
+      })
+      .join('');
+  containers.innerHTML = htmlString;
+};
 
 
 //const searchBar = document.getElementById('searchForm');
