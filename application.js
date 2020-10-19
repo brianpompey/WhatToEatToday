@@ -10,6 +10,38 @@ chk.addEventListener('change', () => {
 	document.body.classList.toggle('dark');
 });
 
+function foodChoiceForm() {
+  let form = document.createElement("form");
+  form.setAttribute("method", "post");
+  form.id = "searchForm"
+  
+
+  let ID = document.createElement("input");
+  ID.setAttribute("type", "text");
+  ID.setAttribute("name", "selection");
+  ID.setAttribute("placeholder", "What are you craving today?");
+  
+  
+  
+  
+  let s = document.createElement("input");
+  s.setAttribute("type", "submit");
+  s.setAttribute("value", "Submit");
+ // s.setAttribute("onclick", "submitFoodForm()")
+  
+  /*
+  let p = document.createElement("input");
+  p.setAttribute("type", "submit");
+  p.setAttribute("value", "Surprise Me");
+  */
+  
+  form.append(ID);
+  form.append(s);
+  //form.append(p);
+  
+  document.getElementById("food choice form").appendChild(form);
+};
+
 //document.addEventListener("DOMContentLoaded", allRestaurants)
 
 const containers = document.getElementById("containers");
@@ -40,37 +72,20 @@ function submitUserForm() {
 
     let down = document.getElementById("food choice form");
 
-    function foodChoiceForm() {
-      let form = document.createElement("form");
-      form.setAttribute("method", "post");
-      form.id = "searchForm"
-      
+    let nameForm = document.getElementById("new_user_form");
+    let name = result.name;
+    let greeting = document.createElement("p");
+    let node = document.createTextNode(`Hello  ${name.charAt(0).toUpperCase()}${name.slice(1)} !`)
+    greeting.appendChild(node);
+  
+    let element = document.getElementById("food choice form")
+    element.appendChild(greeting);
 
-      let ID = document.createElement("input");
-      ID.setAttribute("type", "text");
-      ID.setAttribute("name", "selection");
-      ID.setAttribute("placeholder", "What are you craving today?");
-      
-      
-      
-      
-      let s = document.createElement("input");
-      s.setAttribute("type", "submit");
-      s.setAttribute("value", "Submit");
-     // s.setAttribute("onclick", "submitFoodForm()")
-      
-      /*
-      let p = document.createElement("input");
-      p.setAttribute("type", "submit");
-      p.setAttribute("value", "Surprise Me");
-      */
-      
-      form.append(ID);
-      form.append(s);
-      //form.append(p);
-      
-      document.getElementById("food choice form").appendChild(form);
+    nameForm.remove();
+    foodChoiceForm();   
+
   };
+  /*
   let nameForm = document.getElementById("new_user_form");
   let name = result.name;
   let greeting = document.createElement("p");
@@ -79,17 +94,15 @@ function submitUserForm() {
 
   let element = document.getElementById("food choice form")
   element.appendChild(greeting);
+  */
 
   
-  nameForm.remove();
+  //nameForm.remove();
 
-  foodChoiceForm();
-
-  
-    
+  //foodChoiceForm();    
 
 }
-}
+
 
 const searchBar = document.getElementById('searchForm');
 
