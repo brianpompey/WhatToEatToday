@@ -57,6 +57,9 @@ function foodChoiceForm() {
   */
 };
 
+function foodOrder() {
+  console.log('HUNGRY!')
+}
 
 
    
@@ -145,7 +148,7 @@ function submitUserForm() {
           rest.cuisine.toLowerCase().includes(searchString)
         );
       });
-      console.log(filteredRestaurants);
+     // console.log(filteredRestaurants);
       displayRestaurantChoice(filteredRestaurants);
     })
 
@@ -164,7 +167,7 @@ const displayRestaurantChoice = (restaurant) => {
       .map((restaurant) => {
           return `
           <li class="restaurant">
-              <h2>${restaurant.name}</h2>
+              <a class="restaurant decision" onClick="foodOrder()"><h2>${restaurant.name}</h2></a>
               <p>Borough: ${restaurant.location}</p>
               <p>Cuisine: ${restaurant.cuisine}</p>
           </li>
