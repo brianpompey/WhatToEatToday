@@ -5,6 +5,7 @@ let restaurantIndex = [];
 console.log("Hello")
 
 const chk = document.getElementById('chk');
+const containers = document.getElementById("containers");
 
 //const searchBar = document.getElementById('searchForm');
 
@@ -58,12 +59,13 @@ function submitFoodForm(searchBar) {
   searchBar.onsubmit = async (e) => {
     e.preventDefault();
     console.log("hello world");
+    containers.innerHTML = "I can use this"
   } 
 } 
 
 //document.addEventListener("DOMContentLoaded", allRestaurants)
 
-const containers = document.getElementById("containers");
+
 
 const userForm = document.getElementById("new_user_form");
 
