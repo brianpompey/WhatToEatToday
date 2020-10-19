@@ -2,6 +2,7 @@ const BASE_URL = "http://localhost:3000";
 const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
 
 let myRestaurants = [];
+const restaurantsList = document.getElementById("restaurantsList");
 console.log("Hello")
 
 const chk = document.getElementById('chk');
@@ -134,18 +135,18 @@ function submitUserForm() {
 
     searchData.addEventListener('keyup', (e) => {
       e.preventDefault();
-      console.log(e.target.value);
       containers.innerHTML = "I can use this"
       const searchString = e.target.value.toLowerCase();
 
       const filteredRestaurants = myRestaurants.filter((rest) => {
         return (
-          rest.name.toLowerCase().includes(searchString)//||
-      //rest.location.toLowerCase().includes(searchString)||
-      //rest.cuisine.toLowerCase().includes(searchString)
+          rest.name.toLowerCase().includes(searchString) ||
+          rest.location.toLowerCase().includes(searchString) ||
+          rest.cuisine.toLowerCase().includes(searchString)
         );
       });
       console.log(filteredRestaurants);
+      displayRestaurantChoice(filteredRestaurants);
     })
 
     /*
@@ -158,17 +159,19 @@ function submitUserForm() {
 
 }
 
-const displayCharacters = (characters) => {
-  const htmlString = characters
-      .map((character) => {
+const displayRestaurantChoice = (restaurant) => {
+  const htmlString = restaurant
+      .map((restaurant) => {
           return `
-          <li class="character">
-              <h2>${character.name}</h2>
+          <li class="restaurant">
+              <h2>${restaurant.name}</h2>
+              <p>Borough: ${restaurant.location}</p>
+              <p>Cuisine: ${restaurant.cuisine}</p>
           </li>
       `;
       })
       .join('');
-  containers.innerHTML = htmlString;
+  restaurantsList.innerHTML = htmlString;
 };
 
 
