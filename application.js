@@ -6,9 +6,12 @@ console.log("Hello")
 
 const chk = document.getElementById('chk');
 
+//const searchBar = document.getElementById('searchForm');
+
 chk.addEventListener('change', () => {
 	document.body.classList.toggle('dark');
 });
+
 
 function foodChoiceForm() {
   let form = document.createElement("form");
@@ -40,7 +43,23 @@ function foodChoiceForm() {
   //form.append(p);
   
   document.getElementById("food choice form").appendChild(form);
+
+  /*
+  const searchBar = document.getElementById('searchForm');
+
+  searchBar.addEventListener('onclick', (e) => {
+    e.preventDefault();
+    console.log("hello world");
+  })
+  */
 };
+
+function submitFoodForm(searchBar) {
+  searchBar.onsubmit = async (e) => {
+    e.preventDefault();
+    console.log("hello world");
+  } 
+} 
 
 //document.addEventListener("DOMContentLoaded", allRestaurants)
 
@@ -82,29 +101,24 @@ function submitUserForm() {
     element.appendChild(greeting);
 
     nameForm.remove();
-    foodChoiceForm();   
+    foodChoiceForm();
 
-  };
-  /*
-  let nameForm = document.getElementById("new_user_form");
-  let name = result.name;
-  let greeting = document.createElement("p");
-  let node = document.createTextNode(`Hello  ${name.charAt(0).toUpperCase()}${name.slice(1)} !`)
-  greeting.appendChild(node);
+    const searchBar = document.getElementById('searchForm');
 
-  let element = document.getElementById("food choice form")
-  element.appendChild(greeting);
-  */
+    submitFoodForm(searchBar);
 
-  
-  //nameForm.remove();
-
-  //foodChoiceForm();    
+    /*
+    searchBar.addEventListener('onclick', (e) => {
+      e.preventDefault();
+      console.log("hello world");
+    })
+    */
+  };   
 
 }
 
 
-const searchBar = document.getElementById('searchForm');
+//const searchBar = document.getElementById('searchForm');
 
   /*
   function submitFoodForm() {
@@ -114,11 +128,12 @@ const searchBar = document.getElementById('searchForm');
     } 
   } 
   */
-  
+  /*
   searchBar.addEventListener('onclick', (e) => {
     e.preventDefault();
     console.log("hello world");
   })
+  */
 
 /*
 const searchBar = document.getElementById('searchForm');
