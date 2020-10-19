@@ -4,15 +4,6 @@ const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
 let restaurantIndex = [];
 console.log("Hello")
 
-/*
-function darkMode() {
-  let darkTxt = document.getElementById("dark-mode-toggle")
-  let element = document.body;
-  element.classList.toggle("dark-mode");
-  darkTxt.innerHTML = "Light Mode"
-}
-*/
-
 const chk = document.getElementById('chk');
 
 chk.addEventListener('change', () => {
@@ -78,7 +69,7 @@ function submitUserForm() {
       form.append(s);
       //form.append(p);
       
-      document.getElementsByTagName("body")[0].appendChild(form);
+      document.getElementById("food choice form").appendChild(form);
   };
   let nameForm = document.getElementById("new_user_form");
   let name = result.name;
