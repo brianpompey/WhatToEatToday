@@ -24,10 +24,11 @@ function foodChoiceForm() {
   ID.setAttribute("type", "text");
   ID.setAttribute("name", "selection");
   ID.setAttribute("placeholder", "What are you craving today?");
+  ID.id = "searchData";
   
   
   
-  
+  /*
   let s = document.createElement("input");
   s.setAttribute("type", "submit");
   s.setAttribute("value", "Submit");
@@ -40,7 +41,7 @@ function foodChoiceForm() {
   */
   
   form.append(ID);
-  form.append(s);
+  //form.append(s);
   //form.append(p);
   
   document.getElementById("food choice form").appendChild(form);
@@ -55,14 +56,35 @@ function foodChoiceForm() {
   */
 };
 
+
+
+   
+
+
+/*
+searchBar.addEventListener('onsubmit', (e) => {
+  const searchString = e.target.value.toLowerCase();
+
+  const filteredRestaurants = restaurantIndex.filter((rest) => {
+    return (
+      rest.name.toLowerCase().includes(searchString)//||
+      //rest.location.toLowerCase().includes(searchString)||
+      //rest.cuisine.toLowerCase().includes(searchString)
+    );
+  });
+  console.log(filteredRestaurants);
+
+  console.log("hello world")
+});
+
 function submitFoodForm(searchBar) {
   searchBar.onsubmit = async (e) => {
     e.preventDefault();
     console.log("hello world");
     containers.innerHTML = "I can use this"
   } 
-} 
-
+}
+*/
 //document.addEventListener("DOMContentLoaded", allRestaurants)
 
 
@@ -105,9 +127,16 @@ function submitUserForm() {
     nameForm.remove();
     foodChoiceForm();
 
-    const searchBar = document.getElementById('searchForm');
+    //const searchBar = document.getElementById('searchForm');
+    const searchData = document.getElementById("searchData");
 
-    submitFoodForm(searchBar);
+    //submitFoodForm(searchBar);
+
+    searchData.addEventListener('keyup', (e) => {
+      e.preventDefault();
+      console.log("hello world");
+      containers.innerHTML = "I can use this"
+    })
 
     /*
     searchBar.addEventListener('onclick', (e) => {
