@@ -30,6 +30,7 @@ function foodChoiceForm() {
   let p = document.createElement("input");
   p.setAttribute("type", "submit");
   p.setAttribute("value", "Surprise Me");
+  p.setAttribute("onclick", "foodChoiceSurprise()");
   
   
   form.append(ID);
@@ -46,6 +47,7 @@ function foodOrder() {
 
   let form = document.createElement("form");
   form.setAttribute("method", "post");
+  form.id = "order form"
   
   let ID = document.createElement("input");
   ID.setAttribute("type", "text");
@@ -61,15 +63,41 @@ function foodOrder() {
   
   containers.appendChild(form);
 
+  orderForm.addEventListener(onsubmit, submitOrderForm());
+
 }
 
-
+/*
 function submitFoodForm(searchBar) {
   searchBar.onsubmit = async (e) => {
     e.preventDefault();
     console.log("hello world");
     containers.innerHTML = "I can use this"
   } 
+}
+*/
+const orderForm = document.getElementById("order form");
+
+function submitOrderForm() {
+  console.log('order placed')
+  orderForm.onsubmit = async (e) => {
+    e.preventDefault();
+    let response = await fetch('http://localhost:3000/users', {
+      method: 'POST',
+      body: new FormData(orderForm)
+    });
+
+    let result = await response.json();
+
+    console.log(result);
+  }
+}
+
+//orderForm.addEventListener(onsubmit, submitOrderForm());
+
+function foodChoiceSurprise() {
+
+  console.log('SURPRISE')
 }
 
 //document.addEventListener("DOMContentLoaded", allRestaurants)
