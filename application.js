@@ -40,7 +40,26 @@ function foodChoiceForm() {
 };
 
 function foodOrder() {
-  console.log('HUNGRY!')
+  let restForm = document.getElementById("food choice form");
+
+  restForm.remove();
+
+  let form = document.createElement("form");
+  form.setAttribute("method", "post");
+  
+  let ID = document.createElement("input");
+  ID.setAttribute("type", "text");
+  ID.setAttribute("name", "selection");
+  ID.setAttribute("placeholder", "Great Choice!! what would you like to order?");
+
+  let s = document.createElement("input");
+  s.setAttribute("type", "submit");
+  s.setAttribute("value", "Submit");
+  
+  form.append(ID);
+  form.append(s);
+  
+  containers.appendChild(form);
 
 }
 
@@ -52,7 +71,7 @@ function submitFoodForm(searchBar) {
     containers.innerHTML = "I can use this"
   } 
 }
-*/
+
 //document.addEventListener("DOMContentLoaded", allRestaurants)
 
 
@@ -102,7 +121,7 @@ function submitUserForm() {
 
     searchData.addEventListener('keyup', (e) => {
       e.preventDefault();
-      containers.innerHTML = "I can use this"
+      //containers.innerHTML = "I can use this"
       const searchString = e.target.value.toLowerCase();
 
       const filteredRestaurants = myRestaurants.filter((rest) => {
@@ -149,31 +168,6 @@ function allRestaurants() {
 
     }
     )}
-
-
-/*
-function foodSelectionForm() {
-  let form = document.createElement("form");
-  form.setAttribute("method", "post");
-  
-  let ID = document.createElement("input");
-  ID.setAttribute("type", "text");
-  ID.setAttribute("name", "selection");
-  ID.setAttribute("placeholder", "Great! what would you like to order?");
-
-  let s = document.createElement("input");
-  s.setAttribute("type", "submit");
-  s.setAttribute("value", "Submit");
-  
-  form.append(ID);
-  form.append(s);
-  
-  document.getElementsByTagName("body")[0].appendChild(form);
-
-}
-*/
-
-
 
 
 
