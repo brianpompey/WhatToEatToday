@@ -8,7 +8,6 @@ console.log("Hello")
 const chk = document.getElementById('chk');
 const containers = document.getElementById("containers");
 
-//const searchBar = document.getElementById('searchForm');
 
 chk.addEventListener('change', () => {
 	document.body.classList.toggle('dark');
@@ -28,58 +27,23 @@ function foodChoiceForm() {
   ID.id = "searchData";
   
   
-  
-  /*
-  let s = document.createElement("input");
-  s.setAttribute("type", "submit");
-  s.setAttribute("value", "Submit");
- // s.setAttribute("onclick", "submitFoodForm()")
-  
-  /*
   let p = document.createElement("input");
   p.setAttribute("type", "submit");
   p.setAttribute("value", "Surprise Me");
-  */
+  
   
   form.append(ID);
-  //form.append(s);
-  //form.append(p);
+  form.append(p);
   
   document.getElementById("food choice form").appendChild(form);
 
-  /*
-  const searchBar = document.getElementById('searchForm');
-
-  searchBar.addEventListener('onclick', (e) => {
-    e.preventDefault();
-    console.log("hello world");
-  })
-  */
 };
 
 function foodOrder() {
   console.log('HUNGRY!')
+
 }
 
-
-   
-
-
-/*
-searchBar.addEventListener('onsubmit', (e) => {
-  const searchString = e.target.value.toLowerCase();
-
-  const filteredRestaurants = restaurantIndex.filter((rest) => {
-    return (
-      rest.name.toLowerCase().includes(searchString)//||
-      //rest.location.toLowerCase().includes(searchString)||
-      //rest.cuisine.toLowerCase().includes(searchString)
-    );
-  });
-  console.log(filteredRestaurants);
-
-  console.log("hello world")
-});
 
 function submitFoodForm(searchBar) {
   searchBar.onsubmit = async (e) => {
@@ -148,16 +112,11 @@ function submitUserForm() {
           rest.cuisine.toLowerCase().includes(searchString)
         );
       });
-     // console.log(filteredRestaurants);
+
       displayRestaurantChoice(filteredRestaurants);
     })
 
-    /*
-    searchBar.addEventListener('onclick', (e) => {
-      e.preventDefault();
-      console.log("hello world");
-    })
-    */
+
   };   
 
 }
