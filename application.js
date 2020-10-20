@@ -137,41 +137,7 @@ const displayRestaurantChoice = (restaurant) => {
 };
 
 
-//const searchBar = document.getElementById('searchForm');
 
-  /*
-  function submitFoodForm() {
-    searchBar.onclick = async (e) => {
-      e.preventDefault();
-      console.log("hello world");
-    } 
-  } 
-  */
-  /*
-  searchBar.addEventListener('onclick', (e) => {
-    e.preventDefault();
-    console.log("hello world");
-  })
-  */
-
-/*
-const searchBar = document.getElementById('searchForm');
-
-searchBar.addEventListener('onsubmit', (e) => {
-    const searchString = e.target.value.toLowerCase();
-
-    const filteredRestaurants = restaurantIndex.filter((rest) => {
-      return (
-        rest.name.toLowerCase().includes(searchString)//||
-        //rest.location.toLowerCase().includes(searchString)||
-        //rest.cuisine.toLowerCase().includes(searchString)
-      );
-    });
-    console.log(filteredRestaurants);
-  
-    console.log("hello world")
-});
-*/
 
 function allRestaurants() {
   fetch(RESTAURANTS_URL)
@@ -184,33 +150,6 @@ function allRestaurants() {
     }
     )}
 
-/*
-  event.preventDefault();
-  document.getElementById("new_user_form").submit();
-
-  let down = document.getElementById("food choice form");
-
-  function foodChoiceForm() {
-  let form = document.createElement("form");
-  form.setAttribute("method", "post");
-  
-  let ID = document.createElement("input");
-  ID.setAttribute("type", "text");
-  ID.setAttribute("name", "selection");
-  ID.setAttribute("placeholder", "What are you craving today?");
-  
-  let s = document.createElement("input");
-  s.setAttribute("type", "submit");
-  s.setAttribute("value", "Submit");
-  
-  form.append(ID);
-  form.append(s);
-  
-  document.getElementsByTagName("body")[0].appendChild(form);
-};
-foodChoiceForm();
-}
-*/
 
 /*
 function foodSelectionForm() {
