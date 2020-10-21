@@ -63,7 +63,7 @@ function foodOrder() {
   
   containers.appendChild(form);
 
-  orderForm.addEventListener(onsubmit, submitOrderForm());
+  form.addEventListener('submit', (e) => submitOrderForm(e));
 
 }
 
@@ -76,21 +76,19 @@ function submitFoodForm(searchBar) {
   } 
 }
 */
-const orderForm = document.getElementById("order form");
 
-function submitOrderForm() {
-  console.log('order placed')
-  orderForm.onsubmit = async (e) => {
+
+async function submitOrderForm(e) {
+  console.log('order placed', e)
     e.preventDefault();
-    let response = await fetch('http://localhost:3000/users', {
+    let response = await fetch('http://localhost:3000/selections', {
       method: 'POST',
-      body: new FormData(orderForm)
+      body: new FormData(e.target[0].value)
     });
 
     let result = await response.json();
 
     console.log(result);
-  }
 }
 
 //orderForm.addEventListener(onsubmit, submitOrderForm());
