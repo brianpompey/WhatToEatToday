@@ -22,12 +22,11 @@ ActiveRecord::Schema.define(version: 2020_09_19_212123) do
 
   create_table "selections", force: :cascade do |t|
     t.string "order"
-    t.integer "user_id", null: false
     t.integer "restaurant_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["restaurant_id"], name: "index_selections_on_restaurant_id"
-    t.index ["user_id"], name: "index_selections_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,5 +36,4 @@ ActiveRecord::Schema.define(version: 2020_09_19_212123) do
   end
 
   add_foreign_key "selections", "restaurants"
-  add_foreign_key "selections", "users"
 end

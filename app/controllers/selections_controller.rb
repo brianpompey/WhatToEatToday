@@ -15,6 +15,7 @@ class SelectionsController < ApplicationController
 
   # POST /selections
   def create
+  #  binding.pry
     @selection = Selection.new(selection_params)
 
     if @selection.save

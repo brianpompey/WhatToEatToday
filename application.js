@@ -9,6 +9,8 @@ const chk = document.getElementById('chk');
 const containers = document.getElementById("containers");
 
 
+
+
 chk.addEventListener('change', () => {
 	document.body.classList.toggle('dark');
 });
@@ -67,24 +69,15 @@ function foodOrder() {
 
 }
 
-/*
-function submitFoodForm(searchBar) {
-  searchBar.onsubmit = async (e) => {
-    e.preventDefault();
-    console.log("hello world");
-    containers.innerHTML = "I can use this"
-  } 
-}
-*/
-
 
 async function submitOrderForm(e) {
-  console.log('order placed', e)
+  console.log('order placed', e.target[0])
     e.preventDefault();
     let response = await fetch('http://localhost:3000/selections', {
       method: 'POST',
-      body: new FormData(e.target[0].value)
+      body: JSON.stringify(e.target[0])
     });
+    
 
     let result = await response.json();
 
@@ -121,6 +114,7 @@ function submitUserForm() {
       method: 'POST',
       body: new FormData(new_user_form)
     });
+    console.log(new_user_form)
 
     let result = await response.json();
 
