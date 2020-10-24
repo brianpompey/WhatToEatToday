@@ -71,11 +71,12 @@ function foodOrder() {
 
 
 async function submitOrderForm(e) {
-  console.log('order placed', e.target[0])
+  const orderForm = document.getElementById("order form");
+  console.log('order placed', orderForm, e.target[0])
     e.preventDefault();
     let response = await fetch('http://localhost:3000/selections', {
       method: 'POST',
-      body: JSON.stringify(e.target[0])
+      body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
     });
     
 
@@ -95,7 +96,7 @@ function foodChoiceSurprise() {
 
 
 
-const userForm = document.getElementById("new_user_form");
+//const userForm = document.getElementById("new_user_form");
 
 const loadRestaurants = async () => {
   try {
@@ -108,13 +109,14 @@ const loadRestaurants = async () => {
 }
 
 function submitUserForm() {
+  const userForm = document.getElementById("new_user_form");
   userForm.onsubmit = async (e) => {
     e.preventDefault();
     let response = await fetch('http://localhost:3000/users', {
       method: 'POST',
-      body: new FormData(new_user_form)
+      body: new FormData(userForm)
     });
-    console.log(new_user_form)
+    console.log(userForm)
 
     let result = await response.json();
 
