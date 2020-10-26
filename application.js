@@ -42,7 +42,7 @@ function foodChoiceForm() {
 
 };
 
-function foodOrder() {
+function foodOrder(id) {
   let restForm = document.getElementById("food choice form");
 
   restForm.remove();
@@ -53,7 +53,7 @@ function foodOrder() {
   
   let ID = document.createElement("input");
   ID.setAttribute("type", "text");
-  ID.setAttribute("name", "selection");
+  ID.setAttribute("name", "order");
   ID.setAttribute("placeholder", "Great Choice!! what would you like to order?");
 
   let s = document.createElement("input");
@@ -65,7 +65,7 @@ function foodOrder() {
   
   containers.appendChild(form);
 
-  form.addEventListener('submit', (e) => submitOrderForm(e));
+  form.addEventListener('submit', (e) => submitOrderForm(e, id));
 
 }
 
@@ -76,7 +76,10 @@ async function submitOrderForm(e) {
     e.preventDefault();
     let response = await fetch('http://localhost:3000/selections', {
       method: 'POST',
-      body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({selection: Object.fromEntries(new FormData(e.target))})
     });
     
 
@@ -167,7 +170,7 @@ const displayRestaurantChoice = (restaurant) => {
       .map((restaurant) => {
           return `
           <li class="restaurant">
-              <a class="restaurant decision" onClick="foodOrder()"><h2>${restaurant.name}</h2></a>
+              <a class="restaurant decision" onClick="foodOrder(id)"><h2>${restaurant.name}</h2></a>
               <p>Borough: ${restaurant.location}</p>
               <p>Cuisine: ${restaurant.cuisine}</p>
           </li>
