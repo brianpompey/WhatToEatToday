@@ -199,7 +199,8 @@ const displayRestaurantChoice = (restaurant) => {
 };
 
 function restChoice() {
-  //const restDecision = document.getElementsByClassName("restaurant decision");
+  const restDecision = document.getElementsByClassName("restaurant decision");
+  restDecision.remove();
  // restDecision.addEventListener("click", () => {
   console.log("CLICKED!")
 };
