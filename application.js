@@ -165,12 +165,20 @@ function submitUserForm() {
 
 }
 
+/*
+const restDecision = document.getElementsByClassName("restaurant decision");
+
+restDecision.addEventListener("click", () => {
+  console.log("CLICKED!")
+});
+*/
+
 const displayRestaurantChoice = (restaurant) => {
   const htmlString = restaurant
       .map((restaurant) => {
           return `
           <li class="restaurant">
-              <a class="restaurant decision" onClick="foodOrder(id)"><h2>${restaurant.name}</h2></a>
+              <a class="restaurant decision" onclick="restChoice()"><h2>${restaurant.name}</h2></a>
               <p>Borough: ${restaurant.location}</p>
               <p>Cuisine: ${restaurant.cuisine}</p>
           </li>
@@ -178,6 +186,22 @@ const displayRestaurantChoice = (restaurant) => {
       })
       .join('');
   restaurantsList.innerHTML = htmlString;
+
+  /*
+
+  const restDecision = document.getElementsByClassName("restaurant decision");
+
+  restDecision.addEventListener("click", () => {
+  console.log("CLICKED!")
+  
+});
+*/
+};
+
+function restChoice() {
+  //const restDecision = document.getElementsByClassName("restaurant decision");
+ // restDecision.addEventListener("click", () => {
+  console.log("CLICKED!")
 };
 
 
