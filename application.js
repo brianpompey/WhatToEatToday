@@ -59,6 +59,8 @@ function foodOrder(id) {
   let s = document.createElement("input");
   s.setAttribute("type", "submit");
   s.setAttribute("value", "Submit");
+
+  id = document.getElementsByClassName("restaurant decision").getAttribute("data-restaurant-id");
   
   form.append(ID);
   form.append(s);
@@ -178,7 +180,7 @@ const displayRestaurantChoice = (restaurant) => {
       .map((restaurant) => {
           return `
           <li class="restaurant">
-              <a class="restaurant decision" onclick="restChoice()"><h2>${restaurant.name}</h2></a>
+              <a class="restaurant decision" onclick="foodOrder(id)" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
               <p>Borough: ${restaurant.location}</p>
               <p>Cuisine: ${restaurant.cuisine}</p>
           </li>
@@ -200,9 +202,9 @@ const displayRestaurantChoice = (restaurant) => {
 
 function restChoice() {
   const restDecision = document.getElementsByClassName("restaurant decision");
-  restDecision.remove();
- // restDecision.addEventListener("click", () => {
-  console.log("CLICKED!")
+  restDecision.addEventListener("click", () => {
+    console.log("CLICKED!")
+  });
 };
 
 
