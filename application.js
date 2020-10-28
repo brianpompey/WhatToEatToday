@@ -42,9 +42,9 @@ function foodChoiceForm() {
 
 };
 
-function foodOrder(id) {
+function foodOrder(restId) {
   let restForm = document.getElementById("food choice form");
-
+  console.log(restForm);
   restForm.remove();
 
   let form = document.createElement("form");
@@ -60,28 +60,30 @@ function foodOrder(id) {
   s.setAttribute("type", "submit");
   s.setAttribute("value", "Submit");
 
-  id = document.getElementsByClassName("restaurant decision").getAttribute("data-restaurant-id");
+  //debugger
   
   form.append(ID);
   form.append(s);
   
   containers.appendChild(form);
 
-  form.addEventListener('submit', (e) => submitOrderForm(e, id));
+  form.addEventListener('submit', (e) => submitOrderForm(e, restId));
 
 }
 
 
-async function submitOrderForm(e) {
+async function submitOrderForm(e, restId) {
   const orderForm = document.getElementById("order form");
   console.log('order placed', orderForm, e.target[0])
+    let formInfo = Object.fromEntries(new FormData(e.target));
+    
     e.preventDefault();
     let response = await fetch('http://localhost:3000/selections', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({selection: Object.fromEntries(new FormData(e.target))})
+      body: JSON.stringify({selection: {...formInfo, restaurant_id: restId}})
     });
     
 
@@ -180,7 +182,7 @@ const displayRestaurantChoice = (restaurant) => {
       .map((restaurant) => {
           return `
           <li class="restaurant">
-              <a class="restaurant decision" onclick="foodOrder(id)" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
+              <a class="restaurant decision" onclick="foodOrder(${restaurant.id})" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
               <p>Borough: ${restaurant.location}</p>
               <p>Cuisine: ${restaurant.cuisine}</p>
           </li>
