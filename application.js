@@ -88,8 +88,12 @@ async function submitOrderForm(e, restId) {
     
 
     let result = await response.json();
+    let cont = document.getElementById("containers");
 
+    alert("Got it! Your order is on the way. :-) ")
+    cont.innerHTML = "Order Placed"
     console.log(result);
+    setTimeout(function(){ window.location.reload(); }, 3000);
 }
 
 //orderForm.addEventListener(onsubmit, submitOrderForm());
@@ -168,14 +172,6 @@ function submitUserForm() {
   };   
 
 }
-
-/*
-const restDecision = document.getElementsByClassName("restaurant decision");
-
-restDecision.addEventListener("click", () => {
-  console.log("CLICKED!")
-});
-*/
 
 const displayRestaurantChoice = (restaurant) => {
   const htmlString = restaurant
