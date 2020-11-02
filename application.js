@@ -28,21 +28,23 @@ function foodChoiceForm() {
   ID.setAttribute("placeholder", "What are you craving today?");
   ID.id = "searchData";
   
-  
+  /*
   let p = document.createElement("input");
   p.setAttribute("type", "submit");
   p.setAttribute("value", "Surprise Me");
   p.setAttribute("onclick", "foodChoiceSurprise()");
+  */
   
   
   form.append(ID);
-  form.append(p);
+  //form.append(p);
   
   document.getElementById("food choice form").appendChild(form);
 
 };
 
-function foodOrder(restId) {
+function foodOrder(restId, restName) {
+  console.log(restName);
   let restForm = document.getElementById("food choice form");
   console.log(restForm);
   restForm.remove();
@@ -54,7 +56,7 @@ function foodOrder(restId) {
   let ID = document.createElement("input");
   ID.setAttribute("type", "text");
   ID.setAttribute("name", "order");
-  ID.setAttribute("placeholder", "Great Choice!! what would you like to order?");
+  ID.setAttribute("placeholder", `Great Choice!! what would you like to order from ${restId.name} ?`);
 
   let s = document.createElement("input");
   s.setAttribute("type", "submit");
@@ -95,10 +97,6 @@ async function submitOrderForm(e, restId) {
 }
 
 
-function foodChoiceSurprise() {
-
-  console.log('SURPRISE')
-}
 
 
 const loadRestaurants = async () => {
@@ -168,7 +166,7 @@ const displayRestaurantChoice = (restaurant) => {
       .map((restaurant) => {
           return `
           <li class="restaurant">
-              <a class="restaurant decision" onclick="foodOrder(${restaurant.id})" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
+              <a class="restaurant decision" onclick="foodOrder(${restaurant.id, restaurant.name})" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
               <p>Borough: ${restaurant.location}</p>
               <p>Cuisine: ${restaurant.cuisine}</p>
           </li>
