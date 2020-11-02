@@ -9,6 +9,9 @@ const chk = document.getElementById('chk');
 const containers = document.getElementById("containers");
 
 
+function autoReload() {
+  setTimeout(function(){ window.location.reload(); }, 3000);
+};
 
 
 chk.addEventListener('change', () => {
@@ -89,11 +92,24 @@ async function submitOrderForm(e, restId) {
 
     let result = await response.json();
     let cont = document.getElementById("containers");
+    let button = document.createElement("button")
+    button.innerHTML = "Delete Order"
+    button.id = "delete-order"
+    button.addEventListener ("click", (e) => {
+      e.preventDefault();
+      console.log('remove order');
+    });
 
-    alert("Got it! Your order is on the way. :-) ")
-    cont.innerHTML = "Order Placed"
+   // alert("Got it! Your order is on the way. :-) ")
+    alert("Order Placed");
+    
+    cont.innerHTML = result.order 
+    cont.append(button);
     console.log(result);
-    setTimeout(function(){ window.location.reload(); }, 3000);
+    console.log(result.order);
+    console.log(result.restaurant);
+
+  
 }
 
 
@@ -166,7 +182,7 @@ const displayRestaurantChoice = (restaurant) => {
       .map((restaurant) => {
           return `
           <li class="restaurant">
-              <a class="restaurant decision" onclick="foodOrder(${restaurant.id, restaurant.name})" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
+              <a class="restaurant decision" onclick="foodOrder(${restaurant.id})" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
               <p>Borough: ${restaurant.location}</p>
               <p>Cuisine: ${restaurant.cuisine}</p>
           </li>
