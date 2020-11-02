@@ -47,7 +47,7 @@ function foodChoiceForm() {
 };
 
 function foodOrder(restId, restName) {
-  console.log(restName);
+  console.log(`restName`,restName);
   let restForm = document.getElementById("food choice form");
   console.log(restForm);
   restForm.remove();
@@ -59,7 +59,7 @@ function foodOrder(restId, restName) {
   let ID = document.createElement("input");
   ID.setAttribute("type", "text");
   ID.setAttribute("name", "order");
-  ID.setAttribute("placeholder", `Great Choice!! what would you like to order from ${restId.name} ?`);
+  ID.setAttribute("placeholder", `Great Choice!! what would you like to order from ${restName} ?`);
 
   let s = document.createElement("input");
   s.setAttribute("type", "submit");
@@ -97,7 +97,14 @@ async function submitOrderForm(e, restId) {
     button.id = "delete-order"
     button.addEventListener ("click", (e) => {
       e.preventDefault();
-      console.log('remove order');
+      fetch(`http://localhost:3000/selections/${result.id}`, {
+        method: 'DELETE',
+      })
+      //  .then(res => res.json())
+        .then(() => {
+          alert("Order Deleted");
+          location.reload()})
+   //   console.log(result.id);
     });
 
    // alert("Got it! Your order is on the way. :-) ")
@@ -182,7 +189,7 @@ const displayRestaurantChoice = (restaurant) => {
       .map((restaurant) => {
           return `
           <li class="restaurant">
-              <a class="restaurant decision" onclick="foodOrder(${restaurant.id})" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
+              <a class="restaurant decision" onclick="foodOrder('` + restaurant.id + '\',\'' + restaurant.name + `')" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
               <p>Borough: ${restaurant.location}</p>
               <p>Cuisine: ${restaurant.cuisine}</p>
           </li>
