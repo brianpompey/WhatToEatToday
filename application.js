@@ -59,8 +59,6 @@ function foodOrder(restId) {
   let s = document.createElement("input");
   s.setAttribute("type", "submit");
   s.setAttribute("value", "Submit");
-
-  //debugger
   
   form.append(ID);
   form.append(s);
@@ -96,18 +94,12 @@ async function submitOrderForm(e, restId) {
     setTimeout(function(){ window.location.reload(); }, 3000);
 }
 
-//orderForm.addEventListener(onsubmit, submitOrderForm());
 
 function foodChoiceSurprise() {
 
   console.log('SURPRISE')
 }
 
-//document.addEventListener("DOMContentLoaded", allRestaurants)
-
-
-
-//const userForm = document.getElementById("new_user_form");
 
 const loadRestaurants = async () => {
   try {
@@ -147,14 +139,12 @@ function submitUserForm() {
     nameForm.remove();
     foodChoiceForm();
 
-    //const searchBar = document.getElementById('searchForm');
     const searchData = document.getElementById("searchData");
 
-    //submitFoodForm(searchBar);
 
     searchData.addEventListener('keyup', (e) => {
       e.preventDefault();
-      //containers.innerHTML = "I can use this"
+
       const searchString = e.target.value.toLowerCase();
 
       const filteredRestaurants = myRestaurants.filter((rest) => {
@@ -187,15 +177,7 @@ const displayRestaurantChoice = (restaurant) => {
       .join('');
   restaurantsList.innerHTML = htmlString;
 
-  /*
 
-  const restDecision = document.getElementsByClassName("restaurant decision");
-
-  restDecision.addEventListener("click", () => {
-  console.log("CLICKED!")
-  
-});
-*/
 };
 
 function restChoice() {
