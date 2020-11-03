@@ -227,10 +227,17 @@ function allRestaurants() {
     .then(restaurants => {
       for (let i = 0; i < restaurants.length; i++) {
         containers.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} - ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
-        )};
+      )};
+      restToggle = document.getElementById("all-restaurants-toggle");
+      restToggle.innerHTML = "Hide Restaurants"
+      
 
     }
-    )}
+)};
+
+function hideRestaurants() {
+  containers.removeChild();
+}
 
 
 
