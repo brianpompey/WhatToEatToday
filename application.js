@@ -31,20 +31,31 @@ function foodChoiceForm() {
   ID.setAttribute("placeholder", "What are you craving today?");
   ID.id = "searchData";
   
-  /*
+
   let p = document.createElement("input");
   p.setAttribute("type", "submit");
   p.setAttribute("value", "Surprise Me");
-  p.setAttribute("onclick", "foodChoiceSurprise()");
-  */
+  p.id = "surprise-button"
   
   
   form.append(ID);
-  //form.append(p);
+  form.append(p);
   
   document.getElementById("food choice form").appendChild(form);
 
+  let supriseBut = document.getElementById("surpise-button");
+
+  supriseBut.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("SURPRISE!");
+  })
+
 };
+
+function foodchoiceSurprise(e) {
+  e.preventDefault();
+  console.log("SURPRISE!!");
+}
 
 function foodOrder(restId, restName) {
   console.log(`restName`,restName);
