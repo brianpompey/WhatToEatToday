@@ -229,7 +229,12 @@ function allRestaurants() {
         containers.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} - ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
       )};
       restToggle = document.getElementById("all-restaurants-toggle");
-      restToggle.innerHTML = "Hide Restaurants"
+      turnOff = document.createElement("a");
+      turnOff.innerHTML = "Hide Restaurants";
+      turnOff.onclick = hideRestaurants();
+
+      containers.replaceChild(restToggle, turnOff);
+     // restToggle.innerHTML = "Hide Restaurants"
       
 
     }
