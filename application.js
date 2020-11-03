@@ -100,14 +100,11 @@ async function submitOrderForm(e, restId) {
       fetch(`http://localhost:3000/selections/${result.id}`, {
         method: 'DELETE',
       })
-      //  .then(res => res.json())
         .then(() => {
           alert("Order Deleted");
           location.reload()})
-   //   console.log(result.id);
     });
 
-   // alert("Got it! Your order is on the way. :-) ")
     alert("Order Placed");
     
     cont.innerHTML = result.order 
