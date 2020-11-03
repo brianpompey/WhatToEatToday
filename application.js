@@ -13,6 +13,10 @@ function autoReload() {
   setTimeout(function(){ window.location.reload(); }, 3000);
 };
 
+function random_item(items) {
+  return items[Math.floor(Math.random()*items.length)];    
+}
+
 
 chk.addEventListener('change', () => {
 	document.body.classList.toggle('dark');
@@ -42,18 +46,17 @@ function foodChoiceForm() {
   form.append(p);
   
   document.getElementById("food choice form").appendChild(form);
-  let supriseBut = document.getElementById("surpise-button");
+  form.addEventListener('submit', (e) => surpriseMe(e));
 
 };
 
-supriseBut.addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log("SURPRISE!");
-})
 
-function foodchoiceSurprise(e) {
+function surpriseMe(e) {
   e.preventDefault();
-  console.log("SURPRISE!!");
+  randomChoice = (random_item(myRestaurants));
+  console.log(randomChoice.id);
+  console.log(randomChoice.name);
+  foodOrder(randomChoice.id, randomChoice.name)
 }
 
 function foodOrder(restId, restName) {
