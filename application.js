@@ -42,15 +42,14 @@ function foodChoiceForm() {
   form.append(p);
   
   document.getElementById("food choice form").appendChild(form);
-
   let supriseBut = document.getElementById("surpise-button");
 
-  supriseBut.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("SURPRISE!");
-  })
-
 };
+
+supriseBut.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("SURPRISE!");
+})
 
 function foodchoiceSurprise(e) {
   e.preventDefault();
