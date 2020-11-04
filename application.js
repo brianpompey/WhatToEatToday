@@ -222,26 +222,28 @@ function restChoice() {
 
 
 function allRestaurants() {
-  fetch(RESTAURANTS_URL)
-    .then(resp => resp.json())
-    .then(restaurants => {
-      for (let i = 0; i < restaurants.length; i++) {
-        containers.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} - ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
-      )};
-      restToggle = document.getElementById("all-restaurants-toggle");
-      turnOff = document.createElement("a");
-      turnOff.innerHTML = "Hide Restaurants";
-      turnOff.onclick = hideRestaurants();
+  restToggle = document.getElementById("all-restaurants-toggle");
+  if (containers.innerHTML === "") {
+    fetch(RESTAURANTS_URL)
+      .then(resp => resp.json())
+      .then(restaurants => {
+        for (let i = 0; i < restaurants.length; i++) {
+          containers.insertAdjacentHTML("beforeend", `[${restaurants[i].id}]: ${restaurants[i].name} - ${restaurants[i].cuisine} cuisine in ${restaurants[i].location}.<br>`
+        )};
+        
 
-      containers.replaceChild(restToggle, turnOff);
-     // restToggle.innerHTML = "Hide Restaurants"
-      
+        restToggle.innerHTML = "Hide Restaurants";
+      });
+  } else {
+    hideRestaurants();
+    restToggle.innerHTML = "Show Restaurants";
+  }
+};
 
-    }
-)};
+
 
 function hideRestaurants() {
-  containers.removeChild();
+  containers.innerHTML = "";
 }
 
 
