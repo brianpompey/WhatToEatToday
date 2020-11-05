@@ -26,31 +26,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-/*
-class Restaurant {
-  constructor(name, location, cuisine) {
-    this.name = name;
-    this.location = location;
-    this.cuisine = cuisine;
-  }
-  
 
-  submitRestaurant() {
-    const newRestForm = document.getElementById("new-restaurant-form");
-    newRestForm.onsubmit = async (e) => {
-      e.preventDefault();
-      let response = await fetch('http://localhost:3000/restaurants', {
-        method: 'POST',
-        body: new FormData(newRestForm)
-      });
-
-      let result = await response.json();
-
-      console.log(result);
-    }
-  }
-}
-*/
 
 /*
 function submitRestaurant() {
