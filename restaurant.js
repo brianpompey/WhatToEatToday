@@ -1,4 +1,3 @@
-/*
 class Restaurant {
     constructor(name, location, cuisine) {
       this.name = name;
@@ -6,7 +5,7 @@ class Restaurant {
       this.cuisine = cuisine;
     }
 }
-*/
+
 
 
 const loadRestaurants = async () => {
