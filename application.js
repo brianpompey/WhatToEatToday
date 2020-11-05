@@ -26,7 +26,13 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
+class Restaurant {
+  constructor(name, location, cuisine) {
+    this.name = name;
+    this.location = location;
+    this.cuisine = cuisine;
+  }
+}
 function submitRestaurant() {
   const newRestForm = document.getElementById("new-restaurant-form");
   newRestForm.onsubmit = async (e) => {
@@ -35,7 +41,6 @@ function submitRestaurant() {
       method: 'POST',
       body: new FormData(newRestForm)
     });
-    console.log(newRestForm)
 
     let result = await response.json();
 
