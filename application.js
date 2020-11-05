@@ -8,7 +8,43 @@ console.log("Hello")
 const chk = document.getElementById('chk');
 const containers = document.getElementById("containers");
 
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("myBtn");
 
+const span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function submitRestaurant() {
+  const newRestForm = document.getElementById("new-restaurant-form");
+  newRestForm.onsubmit = async (e) => {
+    e.preventDefault();
+    let response = await fetch('http://localhost:3000/restaurants', {
+      method: 'POST',
+      body: new FormData(newRestForm)
+    });
+    console.log(newRestForm)
+
+    let result = await response.json();
+
+    console.log(result);
+  }
+};
+
+
+ 
 function autoReload() {
   setTimeout(function(){ window.location.reload(); }, 3000);
 };

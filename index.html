@@ -17,9 +17,27 @@
                     <div class="ball"></div>
                 </label>
             </li>
+            <li style="float:right"><a class="adder" id="myBtn">Add Restaurant</a></li>
             <li style="float:right"><a class="active" id="all-restaurants-toggle" onclick="allRestaurants();">Show All Restaurants</a></li>
 
         </ul>
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <form id="new-restaurant-form">
+                  <input type="text" name="restaurant[name]" placeholder="Restaurant Name" />
+                  <br>
+                  <input type="text" name="restaurant[location]" placeholder="Location" />
+                  <br>
+                  <input type="text" name="restaurant[cuisine]" placeholder="Cuisine" />
+                  <br>
+                  <input type="submit" value="Submit" onclick="submitRestaurant()" />
+              </form>
+            </div>
+          
+        </div>
 
         <div class="container">
             <h1 style="text-align: center" ><strong>What to Eat Today?</strong></h1>
