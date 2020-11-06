@@ -139,10 +139,8 @@ function submitUserForm() {
       method: 'POST',
       body: new FormData(userForm)
     });
-    console.log(userForm)
 
     let result = await response.json();
-
     console.log(result);
 
     let down = document.getElementById("food choice form");
