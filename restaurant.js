@@ -9,17 +9,17 @@ class Restaurant {
 let newResta = new Restaurant();
 
 btn.onclick = function() {
-    modal.style.display = "block";
+    modals.style.display = "block";
     addRestaurantForm();
 }
   
 span.onclick = function() {
-    modal.style.display = "none";
+    modals.style.display = "none";
 }
   
 window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
+    if (event.target == modals) {
+      modals.style.display = "none";
     }
 }
 
