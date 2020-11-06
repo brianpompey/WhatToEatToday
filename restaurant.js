@@ -4,13 +4,15 @@ class Restaurant {
       this.location = location;
       this.cuisine = cuisine;
     }
+
+
 }
 
 let newResta = new Restaurant();
 
 btn.onclick = function() {
     modals.style.display = "block";
-    addRestaurantForm();
+//    addRestaurantForm();
 }
   
 span.onclick = function() {
@@ -23,6 +25,7 @@ window.onclick = function(event) {
     }
 }
 
+/*
 function addRestaurantForm() {
     let modal = document.getElementById("modal-form");
     let form = document.createElement("form");
@@ -55,6 +58,7 @@ function addRestaurantForm() {
   
     modal.appendChild(form);
 }
+*/
 
 function submitRestaurant() {
     const newRestForm = document.getElementById("new-restaurant-form");
