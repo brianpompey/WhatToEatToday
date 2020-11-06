@@ -28,24 +28,6 @@ window.onclick = function(event) {
 }
 
 
-/*
-function submitRestaurant() {
-  const newRestForm = document.getElementById("new-restaurant-form");
-  newRestForm.onsubmit = async (e) => {
-    e.preventDefault();
-    let response = await fetch('http://localhost:3000/restaurants', {
-      method: 'POST',
-      body: new FormData(newRestForm)
-    });
-
-    let result = await response.json();
-
-    console.log(result);
-  }
-};
-*/
-
-
 function random_item(items) {
   return items[Math.floor(Math.random()*items.length)];    
 }
@@ -231,13 +213,5 @@ const displayRestaurantChoice = (restaurant) => {
 
 
 };
-
-function restChoice() {
-  const restDecision = document.getElementsByClassName("restaurant decision");
-  restDecision.addEventListener("click", () => {
-    console.log("CLICKED!")
-  });
-};
-
 
 
