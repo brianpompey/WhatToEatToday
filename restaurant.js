@@ -4,11 +4,9 @@ class Restaurant {
       this.location = location;
       this.cuisine = cuisine;
     }
-
-    create() {
-
-    }
 }
+
+let newResta = new Restaurant();
 
 btn.onclick = function() {
     modal.style.display = "block";
