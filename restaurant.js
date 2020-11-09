@@ -76,7 +76,20 @@ function hideRestaurants() {
 }
 
 const displayRestaurantChoice = (restaurant) => {
-  const htmlString = restaurant
+  const sortedString = restaurant.sort(function(a, b) {
+    let nameA = a.name.toUpperCase();
+    let nameB = b.name.toUpperCase();
+
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    return 0;
+  });
+  const htmlString = sortedString
       .map((restaurant) => {
           return `
           <li class="restaurant">
@@ -88,7 +101,6 @@ const displayRestaurantChoice = (restaurant) => {
       })
       .join('');
   restaurantsList.innerHTML = htmlString;
-
 
 };
 
