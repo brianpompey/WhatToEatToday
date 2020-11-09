@@ -1,3 +1,7 @@
+const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
+
+let myRestaurants = [];
+const restaurantsList = document.getElementById("restaurantsList");
 const newRestForm = document.getElementById("new-restaurant-form");
 
 class Restaurant {
@@ -6,8 +10,6 @@ class Restaurant {
       this.location = location;
       this.cuisine = cuisine;
     }
-
-
 }
 
 let newResta = new Restaurant();
@@ -73,41 +75,21 @@ function hideRestaurants() {
     containers.innerHTML = "";
 }
 
+const displayRestaurantChoice = (restaurant) => {
+  const htmlString = restaurant
+      .map((restaurant) => {
+          return `
+          <li class="restaurant">
+              <a class="restaurant decision" onclick="foodOrder('` + restaurant.id + '\',\'' + restaurant.name + `')" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
+              <p>Borough: ${restaurant.location}</p>
+              <p>Cuisine: ${restaurant.cuisine}</p>
+          </li>
+      `;
+      })
+      .join('');
+  restaurantsList.innerHTML = htmlString;
+
+
+};
+
 loadRestaurants();
-
-
-
-/*
-function addRestaurantForm() {
-    let modal = document.getElementById("modal-form");
-    let form = document.createElement("form");
-    form.setAttribute("method", "post");
-    form.id = "new-restaurant-form";
-
-    let ID = document.createElement("input");
-    ID.setAttribute("type", "text");
-    ID.setAttribute("name", "restaurant[name]");
-    ID.setAttribute("placeholder", "Restaurant Name");
-
-    let s = document.createElement("input");
-    s.setAttribute("type", "text");
-    s.setAttribute("name", "restaurant[location]");
-    s.setAttribute("placeholder", "Location");
-
-    let a = document.createElement("input");
-    a.setAttribute("type", "text");
-    a.setAttribute("name", "restaurant[cuisine]");
-    a.setAttribute("placeholder", "Cuisine");
-
-    let p = document.createElement("input");
-    p.setAttribute("type", "submit");
-    p.setAttribute("value", "Submit");
-  
-    form.append(ID);
-    form.append(s);
-    form.append(a);
-    form.append(p);
-  
-    modal.appendChild(form);
-}
-*/

@@ -1,8 +1,5 @@
 const BASE_URL = "http://localhost:3000";
-const RESTAURANTS_URL = `${BASE_URL}/restaurants`;
 
-let myRestaurants = [];
-const restaurantsList = document.getElementById("restaurantsList");
 console.log("Hello")
 
 const chk = document.getElementById('chk');
@@ -125,77 +122,7 @@ async function submitOrderForm(e, restId) {
     cont.append(button);
     console.log(result);
     console.log(result.order);
-    console.log(result.restaurant);
-
-  
+    console.log(result.restaurant); 
 }
-
-
-function submitUserForm() {
-  const userForm = document.getElementById("new_user_form");
-  userForm.onsubmit = async (e) => {
-    e.preventDefault();
-    let response = await fetch('http://localhost:3000/users', {
-      method: 'POST',
-      body: new FormData(userForm)
-    });
-
-    let result = await response.json();
-    console.log(result);
-
-    let down = document.getElementById("food choice form");
-
-    let nameForm = document.getElementById("new_user_form");
-    let name = result.name;
-    let greeting = document.createElement("p");
-    let node = document.createTextNode(`Hello  ${name.charAt(0).toUpperCase()}${name.slice(1)} !`)
-    greeting.appendChild(node);
-  
-    let element = document.getElementById("food choice form")
-    element.appendChild(greeting);
-
-    nameForm.remove();
-    foodChoiceForm();
-
-    const searchData = document.getElementById("searchData");
-
-
-    searchData.addEventListener('keyup', (e) => {
-      e.preventDefault();
-
-      const searchString = e.target.value.toLowerCase();
-
-      const filteredRestaurants = myRestaurants.filter((rest) => {
-        return (
-          rest.name.toLowerCase().includes(searchString) ||
-          rest.location.toLowerCase().includes(searchString) ||
-          rest.cuisine.toLowerCase().includes(searchString)
-        );
-      });
-
-      displayRestaurantChoice(filteredRestaurants);
-    })
-
-
-  };   
-
-}
-
-const displayRestaurantChoice = (restaurant) => {
-  const htmlString = restaurant
-      .map((restaurant) => {
-          return `
-          <li class="restaurant">
-              <a class="restaurant decision" onclick="foodOrder('` + restaurant.id + '\',\'' + restaurant.name + `')" data-restaurant-id="${restaurant.id}"><h2>${restaurant.name}</h2></a>
-              <p>Borough: ${restaurant.location}</p>
-              <p>Cuisine: ${restaurant.cuisine}</p>
-          </li>
-      `;
-      })
-      .join('');
-  restaurantsList.innerHTML = htmlString;
-
-
-};
 
 
