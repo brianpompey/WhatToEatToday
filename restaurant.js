@@ -10,6 +10,32 @@ class Restaurant {
       this.location = location;
       this.cuisine = cuisine;
     }
+
+    static sort(restA, restB) {
+      let nameA = restA.name.toUpperCase();
+      let nameB = restB.name.toUpperCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    };
+
+    get location() {
+      return this.location;
+    }
+    
+    set location(location) {
+      const nyBoroughs = ['Queens', 'Manhattan', 'Staten Island', 'Bronx', 'Brooklyn'];
+      if (nyBoroughs.includes(location)) {
+        this.location = location;
+      }
+    }
+
+
 }
 
 let newResta = new Restaurant();
